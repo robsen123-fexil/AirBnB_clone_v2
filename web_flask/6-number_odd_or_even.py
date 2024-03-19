@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''A simple Flask web application.
+'''Aweb application.
 '''
 from flask import Flask, render_template
 
@@ -11,14 +11,22 @@ app.url_map.strict_slashes = False
 
 @app.route('/')
 def index():
-    '''The home page.'''
+    '''The page.'''
     return 'Hello HBNB!'
+
+
+
+
 
 
 @app.route('/hbnb')
 def hbnb():
-    '''The hbnb page.'''
+    '''The page.'''
     return 'HBNB'
+
+
+
+
 
 
 @app.route('/c/<text>')
@@ -27,22 +35,35 @@ def c_page(text):
     return 'C {}'.format(text.replace('_', ' '))
 
 
+
+
+
+
 @app.route('/python/<text>')
 @app.route('/python')
 def python_page(text='is cool'):
-    '''The python page.'''
+    '''Thepage.'''
     return 'Python {}'.format(text.replace('_', ' '))
+
+
+
+
+
 
 
 @app.route('/number/<int:n>')
 def number_page(n):
-    '''The number page.'''
+    '''The  page.'''
     return '{} is a number'.format(n)
+
+
+
+
 
 
 @app.route('/number_template/<int:n>')
 def number_template(n):
-    '''The number_template page.'''
+    '''The page.'''
     ctxt = {
         'n': n
     }
@@ -51,7 +72,7 @@ def number_template(n):
 
 @app.route('/number_odd_or_even/<int:n>')
 def number_odd_or_even(n):
-    '''The number_odd_or_even page.'''
+    '''The  page.'''
     ctxt = {
         'n': n
     }

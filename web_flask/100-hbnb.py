@@ -1,10 +1,18 @@
 #!/usr/bin/python3
-'''A simple Flask web application.
+'''A simpl web application.
 '''
+
+
 from flask import Flask, render_template, Markup
 
+
+
 from models import storage
+
 from models.amenity import Amenity
+
+
+
 from models.place import Place
 from models.state import State
 
@@ -28,16 +36,17 @@ def hbnb():
     for place in places:
         place.description = Markup(place.description)
     ctxt = {
-        'states': all_states,
-        'amenities': amenities,
-        'places': places
+        'states': all_states,'amenities': amenities,'places': places
     }
     return render_template('100-hbnb.html', **ctxt)
 
 
+
+
+
 @app.teardown_appcontext
 def flask_teardown(exc):
-    '''The Flask app/request context end event listener.'''
+    '''The Flask end event listener.'''
     storage.close()
 
 

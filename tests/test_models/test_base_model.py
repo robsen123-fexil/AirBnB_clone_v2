@@ -10,7 +10,7 @@ from models.base_model import BaseModel, Base
 
 
 class TestBasemodel(unittest.TestCase):
-    """Represents the tests for the BaseModel."""
+    """ BaseModel."""
 
     def __init__(self, *args, **kwargs):
         """Initializes the test class."""
@@ -19,19 +19,18 @@ class TestBasemodel(unittest.TestCase):
         self.value = BaseModel
 
     def setUp(self):
-        """Performs some operations before the tests are run."""
+        """are run."""
         pass
 
     def tearDown(self):
-        """Performs some operations after the tests are run"""
+        """Pare run"""
         try:
             os.remove('file.json')
         except Exception:
             pass
 
     def test_init(self):
-        """Tests the initialization of the model class.
-        """
+        """Tel class. """
         self.assertIsInstance(self.value(), BaseModel)
         if self.value is not BaseModel:
             self.assertIsInstance(self.value(), Base)
@@ -39,19 +38,19 @@ class TestBasemodel(unittest.TestCase):
             self.assertNotIsInstance(self.value(), Base)
 
     def test_default(self):
-        """Tests the type of value stored."""
+        """Tests stored."""
         i = self.value()
         self.assertEqual(type(i), self.value)
 
     def test_kwargs(self):
-        """Tests kwargs with an int."""
+        """Tests int."""
         i = self.value()
         copy = i.to_dict()
         new = BaseModel(**copy)
         self.assertFalse(new is i)
 
     def test_kwargs_int(self):
-        """Tests kwargs with an int."""
+        """Tests int."""
         i = self.value()
         copy = i.to_dict()
         copy.update({1: 2})
@@ -61,7 +60,7 @@ class TestBasemodel(unittest.TestCase):
     @unittest.skipIf(
         os.getenv('HBNB_TYPE_STORAGE') == 'db', 'FileStorage test')
     def test_save(self):
-        """Tests the save function of the BaseModel class."""
+        """Tests the  class."""
         i = self.value()
         i.save()
         key = self.name + "." + i.id
@@ -70,13 +69,13 @@ class TestBasemodel(unittest.TestCase):
             self.assertEqual(j[key], i.to_dict())
 
     def test_str(self):
-        """Tests the __str__ function of the BaseModel class."""
+        """Tests class."""
         i = self.value()
         self.assertEqual(str(i), '[{}] ({}) {}'.format(self.name, i.id,
                          i.__dict__))
 
     def test_todict(self):
-        """Tests the to_dict function of the model class."""
+        """Testsclass."""
         i = self.value()
         n = i.to_dict()
         self.assertEqual(i.to_dict(), n)

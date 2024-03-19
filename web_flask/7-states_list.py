@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''A simple Flask web application.
+'''A application.
 '''
 from flask import Flask, render_template
 
@@ -14,7 +14,7 @@ app.url_map.strict_slashes = False
 
 @app.route('/states_list')
 def states_list():
-    '''The states_list page.'''
+    '''The'''
     all_states = list(storage.all(State).values())
     all_states.sort(key=lambda x: x.name)
     ctxt = {
@@ -25,7 +25,7 @@ def states_list():
 
 @app.teardown_appcontext
 def flask_teardown(exc):
-    '''The Flask app/request context end event listener.'''
+    '''The listener.'''
     storage.close()
 
 

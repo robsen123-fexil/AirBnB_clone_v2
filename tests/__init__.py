@@ -1,35 +1,41 @@
 #!/usr/bin/python3
-"""Tests for the AirBnb clone modules.
+"""Test modules.
 """
 import os
 from typing import TextIO
+
+
 from models.engine.file_storage import FileStorage
 
 
 def clear_stream(stream: TextIO):
-    """Clears the contents of a given stream
+    """Clears the c
 
     Args:
-        stream (TextIO): The stream to clear.
+        stream (TextIO): The strr.
     """
     if stream.seekable():
         stream.seek(0)
         stream.truncate(0)
 
 
+
+
+
 def delete_file(file_path: str):
     """Removes a file if it exists.
     Args:
-        file_path (str): The name of the file to remove.
+        file_path file to remove.
     """
     if os.path.isfile(file_path):
         os.unlink(file_path)
 
 
+
+
+
 def reset_store(store: FileStorage, file_path='file.json'):
-    """Resets the items in the given store.
-    Args:
-        store (FileStorage): The FileStorage to reset.
+    """Resets leStorage to reset.
         file_path (str): The path to the store's file.
     """
     with open(file_path, mode='w') as file:
@@ -38,12 +44,11 @@ def reset_store(store: FileStorage, file_path='file.json'):
         store.reload()
 
 
+
+
+
 def read_text_file(file_name):
-    """Reads the contents of a given file.
-
-    Args:
-        file_name (str): The name of the file to read.
-
+    """Re
     Returns:
         str: The contents of the file if it exists.
     """
@@ -55,11 +60,12 @@ def read_text_file(file_name):
     return ''.join(lines)
 
 
-def write_text_file(file_name, text):
-    """Writes a text to a given file.
 
-    Args:
-        file_name (str): The name of the file to write to.
+
+
+
+def write_text_file(file_name, text):
+    """Wri the file to write to.
         text (str): The content of the file.
     """
     with open(file_name, mode='w') as file:
