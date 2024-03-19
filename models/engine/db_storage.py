@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" clone"""
+"""clone"""
 import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
@@ -37,7 +37,7 @@ class DBStorage:
             Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
-        """Returns a dictionary of models currently in storage"""
+        """Returntorage"""
         objects = dict()
         all_classes = (User, State, City, Amenity, Place, Review)
         if cls is None:
