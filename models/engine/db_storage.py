@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This module defines a class to manage database storage for hbnb clone"""
+""" clone"""
 import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
@@ -15,12 +15,12 @@ from models.review import Review
 
 
 class DBStorage:
-    """This class manages storage of hbnb models in a SQL database"""
+    """This"""
     __engine = None
     __session = None
 
     def __init__(self):
-        """Initializes the SQL database storage"""
+        """Itorage"""
         user = os.getenv('HBNB_MYSQL_USER')
         pword = os.getenv('HBNB_MYSQL_PWD')
         host = os.getenv('HBNB_MYSQL_HOST')
@@ -54,7 +54,7 @@ class DBStorage:
         return objects
 
     def delete(self, obj=None):
-        """Removes an object from the storage database"""
+        """Removes"""
         if obj is not None:
             self.__session.query(type(obj)).filter(
                 type(obj).id == obj.id).delete(
@@ -62,7 +62,7 @@ class DBStorage:
             )
 
     def new(self, obj):
-        """Adds new object to storage database"""
+        """Adds"""
         if obj is not None:
             try:
                 self.__session.add(obj)
@@ -73,11 +73,11 @@ class DBStorage:
                 raise ex
 
     def save(self):
-        """Commits the session changes to database"""
+        """Commits"""
         self.__session.commit()
 
     def reload(self):
-        """Loads storage database"""
+        """Load"""
         Base.metadata.create_all(self.__engine)
         SessionFactory = sessionmaker(
             bind=self.__engine,
@@ -86,5 +86,5 @@ class DBStorage:
         self.__session = scoped_session(SessionFactory)()
 
     def close(self):
-        """Closes the storage engine."""
+       
         self.__session.close()
