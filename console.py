@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""  module """
+"""  moakaska ckkks knks kaksd kodule """
 import cmd
 from datetime import datetime
 import re
@@ -18,33 +18,25 @@ from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
-    """ Contains the functionality for the HBNB console"""
+    """console hbnb """
 
     # determines prompt for interactive/non-interactive modes
     prompt = '(hbnb) ' if sys.__stdin__.isatty() else ''
 
     classes = {
-               'BaseModel': BaseModel, 'User': User, 'Place': Place,
-               'State': State, 'City': City, 'Amenity': Amenity,
-               'Review': Review
-              }
+               'BaseModel': BaseModel, 'User': User, 'Place': Place,'State': State, 'City': City, 'Amenity': Amenity,'Review': Review}
     dot_cmds = ['all', 'count', 'show', 'destroy', 'update']
     types = {
-             'number_rooms': int, 'number_bathrooms': int,
-             'max_guest': int, 'price_by_night': int,
-             'latitude': float, 'longitude': float
-            }
+             'number_rooms': int, 'number_bathrooms': int,'max_guest': int, 'price_by_night': int,'latitude': float, 'longitude': float }
 
     def preloop(self):
-        """Prints if isatty is false"""
+        """false"""
         if not sys.__stdin__.isatty():
             print('(hbnb)')
 
     def precmd(self, line):
-        """Reformat command line for advanced command syntax.
-
-        Usage: <class name>.<command>([<id> [<*args> or <**kwargs>]])
-        (Brackets denote optional fields in usage example.)
+        """ comma syax.Uge: <clasame>.<comd>([<id> [<*args> or <**gs>]])
+        (Brack.)
         """
         _cmd = _cls = _id = _args = ''  # initialize line elements
 
