@@ -1,42 +1,28 @@
 #!/usr/bin/python3
-"""A unit (command interpreter).
+"""A unit test module for the console (command interpreter).
 """
 import json
-
 import MySQLdb
-
-
 import os
-
-
 import sqlalchemy
-
-
-
 import unittest
 from io import StringIO
-
-
-
 from unittest.mock import patch
 
 from console import HBNBCommand
-
-
 from models import storage
-
 from models.base_model import BaseModel
-
+from models.user import User
 from tests import clear_stream
 
 
 class TestHBNBCommand(unittest.TestCase):
-    """Represents the tCommand class.
+    """Represents the test class for the HBNBCommand class.
     """
     @unittest.skipIf(
         os.getenv('HBNB_TYPE_STORAGE') == 'db', 'FileStorage test')
     def test_fs_create(self):
-        """Tests the crage.
+        """Tests the create command with the file storage.
         """
         with patch('sys.stdout', new=StringIO()) as cout:
             cons = HBNBCommand()
@@ -59,7 +45,7 @@ class TestHBNBCommand(unittest.TestCase):
     @unittest.skipIf(
         os.getenv('HBNB_TYPE_STORAGE') != 'db', 'DBStorage test')
     def test_db_create(self):
-        """Tests the e database storage.
+        """Tests the create command with the database storage.
         """
         with patch('sys.stdout', new=StringIO()) as cout:
             cons = HBNBCommand()
@@ -89,7 +75,7 @@ class TestHBNBCommand(unittest.TestCase):
     @unittest.skipIf(
         os.getenv('HBNB_TYPE_STORAGE') != 'db', 'DBStorage test')
     def test_db_show(self):
-        """Tests tha tabase storage.
+        """Tests the show command with the database storage.
         """
         with patch('sys.stdout', new=StringIO()) as cout:
             cons = HBNBCommand()
@@ -135,7 +121,7 @@ class TestHBNBCommand(unittest.TestCase):
     @unittest.skipIf(
         os.getenv('HBNB_TYPE_STORAGE') != 'db', 'DBStorage test')
     def test_db_count(self):
-        """Tests the cabase storage.
+        """Tests the count command with the database storage.
         """
         with patch('sys.stdout', new=StringIO()) as cout:
             cons = HBNBCommand()

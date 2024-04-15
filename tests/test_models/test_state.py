@@ -3,16 +3,11 @@
 import os
 
 from tests.test_models.test_base_model import TestBasemodel
-
-
 from models.state import State
 
 
 class TestState(TestBasemodel):
-    """Repren the State model."""
-    
-    
-    
+    """Represents the tests for the State model."""
     def __init__(self, *args, **kwargs):
         """Initializes the test class."""
         super().__init__(*args, **kwargs)
@@ -20,8 +15,7 @@ class TestState(TestBasemodel):
         self.value = State
 
     def test_name3(self):
-        """Testsme."""
-        
+        """Tests the type of name."""
         new = self.value()
         self.assertEqual(
             type(new.name),

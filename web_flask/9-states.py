@@ -1,23 +1,15 @@
 #!/usr/bin/python3
-'''pplication.
+'''A simple Flask web application.
 '''
 from flask import Flask, render_template
 
 from models import storage
-
-
-
 from models.state import State
 
 
 app = Flask(__name__)
-'''instance.'''
+'''The Flask application instance.'''
 app.url_map.strict_slashes = False
-
-
-
-
-
 
 
 @app.route('/states')
@@ -41,18 +33,16 @@ def states(id=None):
         states.sort(key=lambda x: x.name)
         case = 1
     ctxt = {
-        'states': states, 'state': state,'case': case
+        'states': states,
+        'state': state,
+        'case': case
     }
     return render_template('9-states.html', **ctxt)
 
 
-
-
-
-
 @app.teardown_appcontext
 def flask_teardown(exc):
-    '''The .'''
+    '''The Flask app/request context end event listener.'''
     storage.close()
 
 

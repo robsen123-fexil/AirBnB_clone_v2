@@ -6,12 +6,8 @@ from models.city import City
 from tests.test_models.test_base_model import TestBasemodel
 
 
-
-
-
-
 class TestCity(TestBasemodel):
-    """Representsmodel."""
+    """Represents the tests for the City model."""
     def __init__(self, *args, **kwargs):
         """Initializes the test class."""
         super().__init__(*args, **kwargs)
@@ -19,19 +15,15 @@ class TestCity(TestBasemodel):
         self.value = City
 
     def test_state_id(self):
-        """Tests the"""
+        """Tests the type of state_id."""
         new = self.value()
         self.assertEqual(
             type(new.state_id),
             str if os.getenv('HBNB_TYPE_STORAGE') != 'db' else type(None)
-    
         )
 
-
-
-
     def test_name(self):
-        """Tests the"""
+        """Tests the type of name."""
         new = self.value()
         self.assertEqual(
             type(new.name),

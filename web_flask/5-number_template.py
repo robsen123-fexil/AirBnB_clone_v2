@@ -1,57 +1,48 @@
 #!/usr/bin/python3
 '''A simple Flask web application.
 '''
-
-
 from flask import Flask, render_template
 
 
-
-
-
-
 app = Flask(__name__)
-''' Flask  instance.'''
+'''The Flask application instance.'''
 app.url_map.strict_slashes = False
 
 
 @app.route('/')
-
-
-
 def index():
-    ''' home.'''
+    '''The home page.'''
     return 'Hello HBNB!'
 
 
 @app.route('/hbnb')
 def hbnb():
-    '''hbnb page.'''
+    '''The hbnb page.'''
     return 'HBNB'
 
 
 @app.route('/c/<text>')
 def c_page(text):
-    '''page.'''
+    '''The c page.'''
     return 'C {}'.format(text.replace('_', ' '))
 
 
 @app.route('/python/<text>')
 @app.route('/python', defaults={'text': 'is cool'})
 def python_page(text):
-    '''python page.'''
+    '''The python page.'''
     return 'Python {}'.format(text.replace('_', ' '))
 
 
 @app.route('/number/<int:n>')
 def number_page(n):
-    '''  page.'''
+    '''The number page.'''
     return '{} is a number'.format(n)
 
 
 @app.route('/number_template/<int:n>')
 def number_template(n):
-    '''number template page.'''
+    '''The number_template page.'''
     ctxt = {
         'n': n
     }
